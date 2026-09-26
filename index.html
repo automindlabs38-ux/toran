@@ -8,1570 +8,815 @@
   <title>शुभ लाभ | Traditional Door Toran</title>
 
   <style>
-    :root{
-      --green:#173f34;
-      --green-dark:#0d2b23;
-      --green-soft:#245847;
-      --maroon:#8f2634;
-      --maroon-dark:#681c28;
-      --gold:#c58a3a;
-      --gold-light:#e4bd73;
-      --cream:#f8f1df;
-      --paper:#fffaf0;
-      --paper-2:#f3ead8;
-      --red:#b82d35;
-      --ink:#2d2924;
-      --muted:#746b5e;
-      --white:#fff;
-      --shadow:0 18px 45px rgba(43,32,20,.13);
-      --radius:24px;
+    :root {
+      /* Soft, inviting, and traditional color palette */
+      --green: #1a4a38;
+      --green-dark: #0f2e22;
+      --green-light: #2c6e55;
+      --maroon: #9e2a39;
+      --maroon-dark: #7a1d28;
+      --gold: #d49a42;
+      --gold-light: #f2d49b;
+      --gold-soft: #fbf3e0;
+      --cream: #fdfbf7;
+      --paper: #fff;
+      --ink: #3a352f;
+      --muted: #6e6558;
+      --border: #e8e0ce;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1da851;
+      
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-md: 0 12px 32px rgba(43,32,20,0.08);
+      --shadow-lg: 0 24px 60px rgba(43,32,20,0.12);
+      --radius: 20px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 8% 8%,rgba(197,138,58,.12),transparent 24%),
-        radial-gradient(circle at 92% 18%,rgba(143,38,52,.08),transparent 24%),
-        var(--cream);
-      font-family:Georgia,"Noto Serif Devanagari","Times New Roman",serif;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--cream);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212,154,66,0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(158,42,57,0.04) 0%, transparent 40%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif Devanagari", Georgia, serif;
+      line-height: 1.6;
     }
 
-    button{font:inherit;cursor:pointer}
-    img{max-width:100%}
-    a{text-decoration:none}
+    button { 
+      font: inherit; 
+      cursor: pointer; 
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
 
-    .top-border{
-      height:9px;
-      background:repeating-linear-gradient(
+    .top-strip {
+      height: 6px;
+      background: repeating-linear-gradient(
         90deg,
-        var(--maroon) 0 18px,
-        var(--gold) 18px 24px,
-        var(--maroon) 24px 42px,
-        var(--gold-light) 42px 46px
+        var(--maroon) 0, var(--maroon) 20px,
+        var(--gold) 20px, var(--gold) 40px
       );
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(248,241,223,.93);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(143,38,52,.13);
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
     }
 
-    .nav{
-      width:min(1180px,100%);
-      margin:auto;
-      padding:13px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      color:var(--green);
-      font-weight:800;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .brand-mark{
-      width:42px;
-      height:42px;
-      display:grid;
-      place-items:center;
-      background:var(--green);
-      color:var(--gold-light);
-      clip-path:polygon(50% 0,100% 24%,88% 100%,12% 100%,0 24%);
-      font-size:22px;
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      color: var(--gold-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(26,74,56,0.2);
     }
 
-    .brand-name{font-size:16px}
-    .brand small{
-      display:block;
-      margin-top:2px;
-      color:var(--maroon);
-      font-size:10px;
-      letter-spacing:1.2px;
+    .brand-text h1 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
-    .nav-cta,
-    .secondary,
-    .view-btn,
-    .primary,
-    .expanded-inquiry{
-      transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+    .brand-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--maroon);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 2px;
     }
 
-    .nav-cta{
-      border:1px solid var(--maroon);
-      color:var(--maroon);
-      background:transparent;
-      border-radius:999px;
-      padding:9px 16px;
-      font-weight:800;
-    }
-    .nav-cta:hover{background:var(--maroon);color:#fff}
+    main { padding-bottom: 60px; }
 
-    main{overflow:hidden}
-
-    .hero{
-      width:min(1180px,100%);
-      margin:auto;
-      padding:62px 20px 36px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      align-items:center;
-      gap:46px;
+    .intro-section {
+      text-align: center;
+      max-width: 800px;
+      margin: 40px auto 30px;
+      padding: 0 24px;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 13px;
-      border:1px solid rgba(197,138,58,.5);
-      border-radius:999px;
-      color:var(--maroon);
-      background:rgba(255,250,240,.75);
-      font-size:13px;
-      font-weight:800;
+    .intro-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--gold-soft);
+      color: var(--maroon);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 1px solid rgba(212,154,66,0.3);
     }
 
-    h1{
-      margin:18px 0 13px;
-      color:var(--green);
-      font-size:clamp(42px,6vw,74px);
-      line-height:.98;
-      letter-spacing:-2px;
-    }
-    h1 span{color:var(--maroon)}
-
-    .hero-copy{
-      max-width:620px;
-      margin:0;
-      color:#51483d;
-      font-size:18px;
-      line-height:1.75;
+    .intro-title {
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--green);
+      margin: 0 0 16px;
+      line-height: 1.2;
     }
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:25px;
+    .intro-text {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .primary{
-      border:0;
-      color:#fff;
-      background:var(--maroon);
-      padding:14px 21px;
-      border-radius:999px;
-      font-weight:800;
-      box-shadow:0 9px 22px rgba(143,38,52,.23);
-    }
-    .primary:hover{background:var(--maroon-dark);transform:translateY(-1px)}
-
-    .secondary{
-      border:1px solid rgba(23,63,52,.28);
-      color:var(--green);
-      background:rgba(255,255,255,.5);
-      padding:14px 21px;
-      border-radius:999px;
-      font-weight:800;
-    }
-    .secondary:hover{background:#fff;transform:translateY(-1px)}
-
-    .hero-art{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+    .catalog {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    .hero-image-frame{
-      width:min(620px,100%);
-      aspect-ratio:16 / 9;
-      overflow:hidden;
-      border:2px solid rgba(143,38,52,.2);
-      border-radius:26px;
-      background:var(--green);
-      box-shadow:0 22px 50px rgba(43,32,20,.15);
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
-    .hero-image-frame img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      object-position:center;
-      background:var(--green);
+    .product-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
 
-    .hero-image-placeholder{
-      width:100%;
-      height:100%;
-      display:grid;
-      place-items:center;
-      padding:30px;
-      text-align:center;
-      color:var(--gold-light);
-      background:
-        radial-gradient(circle at 50% 35%,rgba(228,189,115,.18),transparent 38%),
-        var(--green);
-    }
-    .hero-image-placeholder .placeholder-icon{font-size:46px;margin-bottom:8px}
-    .hero-image-placeholder b{display:block;font-size:18px}
-    .hero-image-placeholder span{display:block;margin-top:7px;color:#d8cda9;font-size:12px;line-height:1.5}
-
-    .section{
-      width:min(1180px,100%);
-      margin:auto;
-      padding:46px 20px;
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
     }
 
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:22px;
-      margin-bottom:22px;
+    .card-image-wrap {
+      aspect-ratio: 4/3;
+      background: var(--gold-soft);
+      position: relative;
+      overflow: hidden;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .section-kicker{
-      color:var(--maroon);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-size:12px;
-      font-weight:900;
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
     }
 
-    h2{
-      margin:7px 0 0;
-      color:var(--green);
-      font-size:clamp(29px,4vw,44px);
-      line-height:1.1;
+    .product-card:hover .card-image-wrap img {
+      transform: scale(1.05);
     }
 
-    .section-head p{
-      max-width:510px;
-      margin:0;
-      color:var(--muted);
-      line-height:1.6;
+    .card-content {
+      padding: 24px;
     }
 
-    .products{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:20px;
-      align-items:start;
+    .card-tag {
+      font-size: 12px;
+      color: var(--green);
+      background: rgba(26,74,56,0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 12px;
     }
 
-    .product-card{
-      background:rgba(255,250,240,.94);
-      border:1px solid rgba(143,38,52,.13);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:0 9px 30px rgba(44,31,18,.07);
-      cursor:pointer;
-      outline:none;
-      transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+    .card-title {
+      font-size: 22px;
+      color: var(--ink);
+      margin: 0 0 8px;
+      font-weight: 700;
     }
 
-    .product-card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow);
-      border-color:rgba(197,138,58,.55);
+    .card-desc {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .product-card:focus-visible{
-      outline:3px solid rgba(197,138,58,.65);
-      outline-offset:3px;
+    .card-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
     }
 
-    .product-card.expanded{
-      border-color:rgba(197,138,58,.55);
-      box-shadow:var(--shadow);
+    .btn-view {
+      color: var(--maroon);
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn-view::after {
+      content: '→';
+      font-size: 18px;
+      transition: transform 0.2s;
     }
 
-    /* Product images use a 16:9 frame.
-       object-fit: contain keeps the complete Toran visible without cropping. */
-    .product-photo{
-      aspect-ratio:16 / 9;
-      width:100%;
-      height:auto;
-      padding:10px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 50% 30%,rgba(228,189,115,.18),transparent 34%),
-        var(--green);
+    .product-card:hover .btn-view::after {
+      transform: translateX(4px);
     }
 
-    .product-photo img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      object-position:center;
-      border-radius:14px;
+    .features {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 40px 24px;
+      background: white;
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
     }
 
-    .product-card.expanded .product-photo{
-      aspect-ratio:16 / 9;
-      width:100%;
-      height:auto;
-      padding:15px;
-      background:
-        radial-gradient(circle at 50% 32%,rgba(228,189,115,.17),transparent 42%),
-        #12362c;
+    .feat-item {
+      text-align: center;
+      padding: 20px;
     }
 
-    .product-card.expanded .product-photo img{
-      object-fit:contain;
+    .feat-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gold-soft);
+      color: var(--maroon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
     }
 
-
-
-    /* Product details popup */
-    .product-modal{
-      position:fixed;
-      inset:0;
-      z-index:1000;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      background:rgba(10,24,19,.72);
-      backdrop-filter:blur(8px);
+    .feat-item h3 {
+      font-size: 18px;
+      color: var(--green);
+      margin: 0 0 8px;
     }
 
-    .product-modal.open{
-      display:flex;
-      animation:modalFadeIn .18s ease;
+    .feat-item p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
     }
 
-    @keyframes modalFadeIn{
-      from{opacity:0}
-      to{opacity:1}
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      background: var(--green);
+      color: var(--cream);
+      font-size: 15px;
+    }
+    
+    footer span { color: var(--gold-light); }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
-    .product-modal-panel{
-      width:min(920px,100%);
-      max-height:min(92vh,900px);
-      overflow:auto;
-      position:relative;
-      border:1px solid rgba(197,138,58,.42);
-      border-radius:24px;
-      background:var(--paper);
-      box-shadow:0 30px 80px rgba(0,0,0,.32);
-      animation:modalUp .2s ease;
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    @keyframes modalUp{
-      from{opacity:0;transform:translateY(12px) scale(.98)}
-      to{opacity:1;transform:translateY(0) scale(1)}
+    .modal-content-wrapper {
+      background: var(--paper);
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: var(--shadow-lg);
     }
 
-    .product-modal-close{
-      position:absolute;
-      top:13px;
-      right:13px;
-      z-index:5;
-      width:42px;
-      height:42px;
-      border:1px solid rgba(23,63,52,.18);
-      border-radius:50%;
-      background:rgba(255,250,240,.94);
-      color:var(--green);
-      font-size:25px;
-      line-height:1;
-      box-shadow:0 5px 18px rgba(0,0,0,.12);
+    .modal-overlay.active .modal-content-wrapper {
+      transform: translateY(0) scale(1);
     }
 
-    .product-modal-close:hover{
-      background:var(--maroon);
-      color:#fff;
+    .modal-header {
+      padding: 16px 24px;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10;
     }
 
-    .modal-gallery{
-      width:100%;
-      padding:24px 24px 0;
+    .btn-close {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: background 0.2s, color 0.2s;
     }
 
-    .modal-gallery-main{
-      width:100%;
-      aspect-ratio:16 / 9;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:18px;
-      background:
-        radial-gradient(circle at 50% 30%,rgba(228,189,115,.18),transparent 38%),
-        #12362c;
+    .btn-close:hover {
+      background: var(--maroon);
+      color: white;
     }
 
-    .modal-gallery-main img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      object-position:center;
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      overflow-y: auto;
     }
 
-    .modal-gallery-thumbs{
-      display:flex;
-      gap:9px;
-      overflow-x:auto;
-      padding:11px 2px 4px;
-      scrollbar-width:thin;
+    .modal-gallery {
+      background: var(--gold-soft);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .modal-gallery-thumb{
-      flex:0 0 82px;
-      width:82px;
-      height:58px;
-      padding:3px;
-      border:1px solid rgba(23,63,52,.2);
-      border-radius:9px;
-      background:#fff;
-      cursor:pointer;
-      overflow:hidden;
+    .main-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: white;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
     }
 
-    .modal-gallery-thumb.active{
-      border:2px solid var(--maroon);
-      padding:2px;
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .modal-gallery-thumb img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      border-radius:6px;
-      background:var(--green);
+    .thumb-list {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
     }
 
-    .modal-content{
-      padding:20px 24px 25px;
+    .thumb {
+      width: 80px;
+      height: 60px;
+      flex-shrink: 0;
+      background: white;
+      border-radius: 8px;
+      padding: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
     }
 
-    .modal-tag{
-      display:inline-block;
-      margin-bottom:8px;
-      padding:5px 9px;
-      border-radius:999px;
-      color:var(--maroon);
-      background:rgba(143,38,52,.08);
-      font-size:11px;
-      font-weight:900;
+    .thumb.active {
+      border-color: var(--maroon);
     }
 
-    .modal-title{
-      margin:0 0 8px;
-      color:var(--green);
-      font-size:clamp(27px,4vw,38px);
-      line-height:1.15;
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
     }
 
-    .modal-description{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:15px;
+    .modal-info {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .modal-bottom{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:18px;
-      margin-top:20px;
-      padding-top:17px;
-      border-top:1px solid rgba(197,138,58,.22);
+    .modal-info h2 {
+      font-size: 28px;
+      color: var(--green);
+      margin: 0 0 12px;
+      line-height: 1.2;
     }
 
-    .modal-quantity-label{
-      display:block;
-      margin-bottom:7px;
-      color:var(--green);
-      font-size:12px;
-      font-weight:900;
+    .modal-desc {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 32px;
     }
 
-    .modal-quantity{
-      display:flex;
-      align-items:center;
-      gap:9px;
+    .purchase-area {
+      margin-top: auto;
+      background: var(--cream);
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
     }
 
-    .modal-quantity button{
-      width:37px;
-      height:37px;
-      border:1px solid rgba(23,63,52,.2);
-      border-radius:50%;
-      background:#fff;
-      color:var(--green);
-      font-weight:900;
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .modal-quantity button:hover{
-      background:var(--green);
-      color:#fff;
+    .qty-label {
+      font-weight: 600;
+      color: var(--ink);
     }
 
-    .modal-quantity strong{
-      min-width:28px;
-      text-align:center;
-      color:var(--maroon);
-      font-size:18px;
+    .qty-btns {
+      display: flex;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    .modal-inquiry{
-      border:0;
-      border-radius:12px;
-      padding:12px 17px;
-      background:#1f8f4d;
-      color:#fff;
-      font-weight:900;
+    .qty-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      color: var(--green);
+      background: white;
+    }
+    
+    .qty-btn:hover { background: var(--cream); }
+
+    .qty-val {
+      width: 40px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
     }
 
-    .modal-inquiry:hover{
-      background:#16763d;
-      transform:translateY(-1px);
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--whatsapp);
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.1s;
     }
 
-    body.modal-open{
-      overflow:hidden;
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+    }
+    
+    .btn-whatsapp:active {
+      transform: scale(0.98);
     }
 
-    @media (max-width:620px){
-      .product-modal{
-        padding:10px;
-        align-items:flex-end;
+    @media (max-width: 900px) {
+      .modal-body {
+        grid-template-columns: 1fr;
       }
-
-      .product-modal-panel{
-        max-height:94vh;
-        border-radius:20px 20px 16px 16px;
+      .modal-gallery {
+        padding: 16px;
       }
-
-      .modal-gallery{
-        padding:14px 14px 0;
-      }
-
-      .modal-content{
-        padding:16px 14px 18px;
-      }
-
-      .modal-bottom{
-        display:block;
-      }
-
-      .modal-inquiry{
-        width:100%;
-        margin-top:14px;
-      }
-
-      .modal-gallery-thumb{
-        flex-basis:72px;
-        width:72px;
-        height:51px;
+      .modal-info {
+        padding: 24px;
       }
     }
 
-    /* Multi-image gallery shown when a product is expanded */
-    .product-gallery{
-      display:none;
-      margin-top:16px;
+    @media (max-width: 768px) {
+      .features {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+      .intro-title { font-size: 28px; }
     }
 
-    .product-card.expanded .product-gallery{
-      display:block;
-    }
-
-    .gallery-main{
-      width:100%;
-      aspect-ratio:16 / 9;
-      overflow:hidden;
-      border-radius:16px;
-      background:
-        radial-gradient(circle at 50% 30%,rgba(228,189,115,.18),transparent 38%),
-        #12362c;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid rgba(197,138,58,.2);
-    }
-
-    .gallery-main img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      object-position:center;
-    }
-
-    .gallery-thumbs{
-      display:flex;
-      gap:9px;
-      margin-top:10px;
-      overflow-x:auto;
-      padding:2px 1px 5px;
-      scrollbar-width:thin;
-    }
-
-    .gallery-thumb{
-      flex:0 0 76px;
-      width:76px;
-      height:54px;
-      padding:3px;
-      border:1px solid rgba(23,63,52,.2);
-      border-radius:9px;
-      background:#fff;
-      cursor:pointer;
-      overflow:hidden;
-      transition:border-color .18s ease,transform .18s ease;
-    }
-
-    .gallery-thumb:hover{
-      transform:translateY(-1px);
-      border-color:var(--gold);
-    }
-
-    .gallery-thumb.active{
-      border:2px solid var(--maroon);
-      padding:2px;
-    }
-
-    .gallery-thumb img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      border-radius:6px;
-      background:var(--green);
-    }
-
-    .gallery-count{
-      margin-top:7px;
-      color:var(--muted);
-      font-size:11px;
-      text-align:right;
-    }
-
-    .image-placeholder{
-      width:90%;
-      height:82%;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:20px;
-      color:#ead49d;
-      border:1px dashed rgba(228,189,115,.62);
-      border-radius:16px;
-      background:
-        repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px),
-        #14382f;
-    }
-    .image-placeholder b{font-size:15px}
-    .image-placeholder span{display:block;margin-top:6px;font-size:11px;opacity:.82}
-
-    .product-body{padding:19px}
-
-    .product-tag{
-      display:inline-block;
-      margin-bottom:9px;
-      padding:5px 9px;
-      border-radius:999px;
-      color:var(--maroon);
-      background:rgba(143,38,52,.08);
-      font-size:11px;
-      font-weight:900;
-    }
-
-    .product-title{
-      margin:0 0 7px;
-      color:var(--green);
-      font-size:24px;
-      line-height:1.2;
-    }
-
-    .product-desc{
-      min-height:68px;
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
-    }
-
-    .card-bottom{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:16px;
-    }
-
-    .mini-motif{color:var(--gold);font-size:22px}
-
-    .view-btn{
-      border:0;
-      background:var(--green);
-      color:#fff;
-      padding:11px 15px;
-      border-radius:12px;
-      font-weight:900;
-    }
-    .view-btn:hover{background:var(--green-dark)}
-
-    .product-expanded{
-      display:none !important;
-    }
-
-    @keyframes expandIn{
-      from{opacity:0;transform:translateY(-5px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    .expanded-description{
-      margin:0 0 15px;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:14px;
-    }
-
-    .expanded-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .quantity-label{
-      display:block;
-      margin-bottom:6px;
-      color:var(--green);
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .expanded-quantity{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    .expanded-quantity button{
-      width:35px;
-      height:35px;
-      border:1px solid rgba(23,63,52,.2);
-      border-radius:50%;
-      background:#fff;
-      color:var(--green);
-      font-weight:900;
-    }
-    .expanded-quantity button:hover{background:var(--green);color:#fff}
-
-    .expanded-quantity strong{
-      min-width:26px;
-      text-align:center;
-      color:var(--maroon);
-      font-size:17px;
-    }
-
-    .expanded-inquiry{
-      border:0;
-      background:#1f8f4d;
-      color:#fff;
-      padding:11px 14px;
-      border-radius:12px;
-      font-weight:900;
-      white-space:nowrap;
-    }
-    .expanded-inquiry:hover{background:#16763d;transform:translateY(-1px)}
-
-    .why{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .feature{
-      padding:21px 17px;
-      border:1px solid rgba(197,138,58,.2);
-      border-radius:20px;
-      background:rgba(255,250,240,.62);
-    }
-
-    .feature-icon{
-      color:var(--gold);
-      font-size:25px;
-      margin-bottom:8px;
-    }
-
-    .feature h3{margin:0 0 7px;color:var(--green);font-size:18px}
-    .feature p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
-
-    .how{
-      margin-top:10px;
-      background:var(--green);
-      color:#fff;
-      position:relative;
-    }
-
-    .how::before,
-    .how::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      height:6px;
-      background:repeating-linear-gradient(90deg,var(--maroon) 0 18px,var(--gold) 18px 24px,var(--maroon) 24px 42px,var(--gold-light) 42px 46px);
-    }
-    .how::before{top:0}
-    .how::after{bottom:0}
-
-    .how-inner{
-      width:min(1180px,100%);
-      margin:auto;
-      padding:58px 20px 62px;
-    }
-
-    .how h2{color:#fff;margin-bottom:25px}
-
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .step{
-      padding:22px;
-      border:1px solid rgba(228,189,115,.25);
-      border-radius:20px;
-      background:rgba(255,255,255,.045);
-    }
-
-    .step-number{
-      color:var(--gold-light);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:1px;
-    }
-    .step h3{margin:10px 0 7px;font-size:21px}
-    .step p{margin:0;color:#d9e0dc;line-height:1.55;font-size:14px}
-
-    footer{
-      padding:25px 20px;
-      text-align:center;
-      color:var(--maroon);
-      background:var(--cream);
-      font-weight:800;
-    }
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;gap:28px;padding-top:42px}
-      .hero-copy{max-width:760px}
-      .hero-art{order:2}
-      .products{grid-template-columns:1fr 1fr}
-      .why{grid-template-columns:1fr 1fr}
-    }
-
-    @media (max-width:620px){
-      .nav{padding:11px 15px}
-      .brand-name{font-size:14px}
-      .brand small{font-size:8px}
-      .brand-mark{width:38px;height:38px;font-size:20px}
-      .nav-cta{padding:8px 12px;font-size:12px}
-
-      .hero{padding:34px 15px 22px;gap:25px}
-      h1{font-size:49px}
-      .hero-copy{font-size:16px;line-height:1.65}
-      .hero-image-frame{border-radius:20px}
-      .hero-actions{display:grid;grid-template-columns:1fr}
-      .primary,.secondary{width:100%}
-
-      .section{padding:36px 15px}
-      .section-head{display:block}
-      .section-head p{margin-top:10px}
-      .products{grid-template-columns:1fr}
-
-      .product-photo{aspect-ratio:16 / 9}
-      .product-card.expanded .product-photo{aspect-ratio:16 / 9;padding:10px}
-      .product-body{padding:17px}
-      .product-title{font-size:22px}
-      .product-desc{min-height:auto}
-
-      .expanded-row{align-items:flex-end}
-      .expanded-inquiry{padding:10px 11px;font-size:13px}
-
-      .why{grid-template-columns:1fr 1fr}
-      .steps{grid-template-columns:1fr}
-      .how-inner{padding:55px 15px 60px}
-    }
-
-    @media (max-width:390px){
-      .why{grid-template-columns:1fr}
-      .expanded-row{display:block}
-      .expanded-inquiry{width:100%;margin-top:13px}
+    @media (max-width: 480px) {
+      .nav { padding: 12px 16px; }
+      .brand-text h1 { font-size: 18px; }
+      .brand-icon { width: 36px; height: 36px; font-size: 20px; }
+      .intro-section { padding: 0 16px; margin-top: 30px; }
+      .product-grid { grid-template-columns: 1fr; gap: 20px; }
+      .modal-content-wrapper { max-height: 95vh; border-radius: 16px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="top-border"></div>
+
+  <div class="top-strip"></div>
 
   <header>
-    <nav class="nav">
+    <div class="nav">
       <div class="brand">
-        <div class="brand-mark">ॐ</div>
-        <div>
-          <div class="brand-name">MitRangoli Products</div>
-          <small>परंपरा • सौंदर्य • शुभता</small>
+        <div class="brand-icon">ॐ</div>
+        <div class="brand-text">
+          <h1>MitRangoli</h1>
+          <span>सुंदर घरासाठी</span>
         </div>
       </div>
-
-      <button class="nav-cta" type="button" onclick="scrollToProducts()">
-        तोरण पहा
-      </button>
-    </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-copy-wrap">
-        <div class="eyebrow">✦ पारंपरिक भारतीय सजावट ✦</div>
+    <section class="intro-section">
+      <div class="intro-badge">✦ नवीन कलेक्शन ✦</div>
+      <h2 class="intro-title">तुमच्या घराच्या सजावटीसाठी पारंपरिक तोरण</h2>
+      <p class="intro-text">
+        दिवाळी, सण किंवा रोजच्या सजावटीसाठी सुंदर डिझाइन्स. आवडलेलं तोरण निवडा आणि थेट WhatsApp वर ऑर्डर करा. खूप सोपे!
+      </p>
+    </section>
 
-        <h1>चला<br><span>लक्ष्मीचे</span> स्वागत करूया.</h1>
-
-        <p class="hero-copy">
-          सुंदर, पारंपरिक आणि उठावदार Door Toran — सण, गृहप्रवेश,
-          दिवाळी किंवा रोजच्या घराच्या सजावटीसाठी. तुमच्या आवडीचे
-          डिझाइन निवडा आणि थेट WhatsApp वर चौकशी पाठवा.
-        </p>
-
-        <div class="hero-actions">
-          <button class="primary" type="button" onclick="scrollToProducts()">
-            ✦ तोरणांची डिझाइन्स पहा
-          </button>
-          <button class="secondary" type="button" onclick="scrollToProducts()">
-            WhatsApp चौकशी
-          </button>
-        </div>
-      </div>
-
-      <div class="hero-art">
-        <div class="hero-image-frame">
-          <img
-            id="heroProductImage"
-            src=""
-            alt="शुभ लाभ Door Toran"
-            style="display:none"
-          />
-
-          <div class="hero-image-placeholder" id="heroImagePlaceholder">
-            <div>
-              <div class="placeholder-icon">✦</div>
-              <b>मुख्य Product Image येथे दिसेल</b>
-              <span>HERO_IMAGE_URL मध्ये तुमची actual image URL टाका.</span>
-            </div>
-          </div>
-        </div>
+    <section class="catalog">
+      <div class="product-grid" id="catalog-container">
+        <!-- Products injected via JS -->
       </div>
     </section>
 
-    <section class="section" id="products">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">आमची डिझाइन्स</div>
-          <h2>तुमच्या घरासाठी निवडा</h2>
-        </div>
-        <p>
-          प्रत्येक डिझाइनवर क्लिक करा, पूर्ण image पहा, quantity निवडा
-          आणि एका क्लिकमध्ये WhatsApp वर inquiry पाठवा.
-        </p>
+    <section class="features">
+      <div class="feat-item">
+        <div class="feat-icon">✨</div>
+        <h3>आकर्षक डिझाइन्स</h3>
+        <p>घराला पारंपारिक आणि सुंदर लूक देणारी खास तोरणे.</p>
       </div>
-
-      <div class="products" id="productGrid"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">का निवडाल?</div>
-          <h2>घरगुती वापरासाठी सोपे</h2>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">📱</div>
+        <h3>सोपी ऑर्डरिंग</h3>
+        <p>कोणताही फॉर्म न भरता थेट WhatsApp वरून ऑर्डर करा.</p>
       </div>
-
-      <div class="why">
-        <div class="feature">
-          <div class="feature-icon">ॐ</div>
-          <h3>पारंपरिक लुक</h3>
-          <p>भारतीय घरांच्या सजावटीला शोभेल असा शुभ आणि आकर्षक अंदाज.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">✦</div>
-          <h3>सणासाठी खास</h3>
-          <p>दिवाळी, गृहप्रवेश, पूजा आणि इतर शुभ प्रसंगांसाठी योग्य.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">✓</div>
-          <h3>सोपे Inquiry</h3>
-          <p>फॉर्म, login किंवा checkout नाही — थेट WhatsApp वर चौकशी.</p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">♥</div>
-          <h3>घरासाठी सुंदर</h3>
-          <p>दरवाज्याला रंग, परंपरा आणि शुभतेचा सुंदर स्पर्श.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="how">
-      <div class="how-inner">
-        <div class="section-kicker" style="color:var(--gold-light)">कसे करायचे?</div>
-        <h2>फक्त 3 सोपे स्टेप्स</h2>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">01 — निवडा</div>
-            <h3>तुमचे डिझाइन</h3>
-            <p>तुम्हाला आवडणाऱ्या Door Toran वर क्लिक करा.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-number">02 — Quantity</div>
-            <h3>हवी तितकी संख्या</h3>
-            <p>+ आणि − वापरून quantity सहज निवडा.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-number">03 — WhatsApp</div>
-            <h3>Inquiry पाठवा</h3>
-            <p>बटण दाबल्यावर तयार message WhatsApp मध्ये उघडेल.</p>
-          </div>
-        </div>
+      <div class="feat-item">
+        <div class="feat-icon">🙏</div>
+        <h3>शुभ आणि पवित्र</h3>
+        <p>सण आणि मंगल कार्यांसाठी अतिशय योग्य आणि शुभ.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    शुभ मंगल • सुंदर घर • आनंदी कुटुंब
+    शुभ लाभ • <span>सुंदर घर</span> • आनंदी कुटुंब
   </footer>
 
-  <script>
-    /*
-    ==========================================================
-    EASY EDIT SECTION
-    ==========================================================
-    1. WhatsApp number: already set to 9765773828.
-    2. HERO_IMAGE_URL: main hero image.
-    3. products[]: edit title, description, images[] and tag. Add multiple image URLs inside images[].
-    4. No price/payment/order system is used.
-    5. Product cards open a popup only for the product details/gallery.
-    ==========================================================
-    */
-
-    const WHATSAPP_NUMBER = "919765773828";
-
-    // Main hero image — supplied image URL.
-    const HERO_IMAGE_URL = "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405819/fssz0nsgmqwfmqllb4nj.jpg";
-
-    const products = [
-      {
-        title: "शुभ लाभ Door Toran",
-        description: "पारंपरिक भारतीय शुभ चिन्हांनी सजवलेले आकर्षक Door Toran.",
-        images: [
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/dhno9tbj9bc0cgehegai.jpg",
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/gjk9lhjyc1t8yzeorhzw.jpg",
-          ""
-        ],
-        tag: "पारंपरिक"
-      },
-      {
-        title: "Product 2",
-        description: "तुमच्या दुसऱ्या Door Toran चे description येथे लिहा.",
-        images: [
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/qxa2uklqkvg3joml9k2j.jpg",
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/gopvplhdnoeot9jassmk.jpg",
-          ""
-        ],
-        tag: "नवीन डिझाइन"
-      },
-      {
-        title: "Product 3",
-        description: "तुमच्या तिसऱ्या Door Toran चे description येथे लिहा.",
-        images: [
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/rbm3bv0oo9zekirzbinq.jpg",
-          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405952/wmwazussc1lxydugoro0.jpg",
-          ""
-        ],
-        tag: "विशेष"
-      }
-    ];
-
-    // Quantity is stored separately for every product card.
-    const cardQuantities = products.map(() => 1);
-    const galleryIndexes = products.map(() => 0);
-
-    function escapeHtml(value){
-      return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-    }
-
-    function getProductImages(product){
-      if(Array.isArray(product.images)){
-        return product.images.filter(url => url && url.trim());
-      }
-
-      // Backward compatibility for an old product object using image: "".
-      if(product.image && product.image.trim()){
-        return [product.image];
-      }
-
-      return [];
-    }
-
-    function productVisual(product){
-      const images = getProductImages(product);
-
-      if(images.length){
-        return `
-          <img
-            src="${escapeHtml(images[0])}"
-            alt="${escapeHtml(product.title)}"
-            loading="lazy"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-          />
-          <div class="image-placeholder" style="display:none">
-            <div>
-              <b>Image load झाली नाही</b>
-              <span>image URL तपासा</span>
-            </div>
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-content-wrapper" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <button class="btn-close" onclick="closeModal()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-gallery">
+          <div class="main-image">
+            <img id="modal-main-img" src="" alt="Product">
           </div>
-        `;
-      }
-
-      return `
-        <div class="image-placeholder">
-          <div>
-            <b>Product Image येथे</b>
-            <span>products[] मधील images array मध्ये actual URL टाका.</span>
+          <div class="thumb-list" id="modal-thumbs">
+            <!-- Thumbs injected via JS -->
           </div>
         </div>
-      `;
-    }
-
-    function renderGallery(index){
-      const product = products[index];
-      const images = getProductImages(product);
-
-      if(!images.length){
-        return `
-          <div class="product-gallery">
-            <div class="gallery-main">
-              <div class="image-placeholder">
-                <div>
-                  <b>Product Images येथे</b>
-                  <span>images: ["URL 1", "URL 2", "URL 3"] अशा पद्धतीने URLs टाका.</span>
-                </div>
+        
+        <div class="modal-info">
+          <div class="card-tag" id="modal-tag"></div>
+          <h2 id="modal-title"></h2>
+          <p class="modal-desc" id="modal-desc"></p>
+          
+          <div class="purchase-area">
+            <div class="qty-control">
+              <span class="qty-label">किती हवेत? (Quantity):</span>
+              <div class="qty-btns">
+                <button class="qty-btn" onclick="updateQty(-1)">−</button>
+                <div class="qty-val" id="modal-qty">1</div>
+                <button class="qty-btn" onclick="updateQty(1)">+</button>
               </div>
             </div>
+            
+            <button class="btn-whatsapp" onclick="sendWhatsApp()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.571-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+              WhatsApp वर Inquiry पाठवा
+            </button>
           </div>
-        `;
-      }
-
-      const selected = Math.min(galleryIndexes[index] || 0, images.length - 1);
-      galleryIndexes[index] = selected;
-
-      return `
-        <div class="product-gallery" onclick="event.stopPropagation()">
-          <div class="gallery-main">
-            <img
-              id="galleryMain-${index}"
-              src="${escapeHtml(images[selected])}"
-              alt="${escapeHtml(product.title)} - image ${selected + 1}"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-            />
-            <div class="image-placeholder" style="display:none">
-              <div>
-                <b>Image load झाली नाही</b>
-                <span>image URL तपासा</span>
-              </div>
-            </div>
-          </div>
-
-          ${
-            images.length > 1
-              ? `
-                <div class="gallery-thumbs" aria-label="Product images">
-                  ${images.map((url,imgIndex) => `
-                    <button
-                      class="gallery-thumb ${imgIndex === selected ? "active" : ""}"
-                      type="button"
-                      aria-label="Product image ${imgIndex + 1} पहा"
-                      onclick="selectProductImage(${index},${imgIndex},event)"
-                    >
-                      <img src="${escapeHtml(url)}" alt="" loading="lazy" />
-                    </button>
-                  `).join("")}
-                </div>
-                <div class="gallery-count">${selected + 1} / ${images.length} images</div>
-              `
-              : ""
-          }
-        </div>
-      `;
-    }
-
-    function scrollToProducts(){
-      document.getElementById("products").scrollIntoView({behavior:"smooth"});
-    }
-
-    function closeProductModal(event){
-      if(event && event.target !== event.currentTarget) return;
-
-      const modal = document.getElementById("productModal");
-      if(modal){
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden","true");
-      }
-
-      document.body.classList.remove("modal-open");
-    }
-
-    function openProduct(index,event){
-      if(event) event.stopPropagation();
-
-      const product = products[index];
-      const images = getProductImages(product);
-
-      galleryIndexes[index] = Math.min(galleryIndexes[index] || 0, Math.max(images.length - 1,0));
-      cardQuantities[index] = 1;
-
-      const modal = document.getElementById("productModal");
-      const gallery = document.getElementById("modalGallery");
-      const title = document.getElementById("modalTitle");
-      const description = document.getElementById("modalDescription");
-      const tag = document.getElementById("modalTag");
-      const qty = document.getElementById("modalQty");
-
-      if(!modal || !gallery || !title || !description || !tag || !qty) return;
-
-      title.textContent = product.title;
-      description.textContent = product.description;
-      tag.textContent = product.tag;
-      qty.textContent = "1";
-
-      if(images.length){
-        const selected = galleryIndexes[index];
-
-        gallery.innerHTML = `
-          <div class="modal-gallery-main">
-            <img
-              id="modalMainImage"
-              src="${escapeHtml(images[selected])}"
-              alt="${escapeHtml(product.title)} - image ${selected + 1}"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-            />
-            <div class="image-placeholder" style="display:none">
-              <div>
-                <b>Image load झाली नाही</b>
-                <span>image URL तपासा</span>
-              </div>
-            </div>
-          </div>
-
-          ${
-            images.length > 1
-              ? `
-                <div class="modal-gallery-thumbs">
-                  ${images.map((url,imgIndex) => `
-                    <button
-                      class="modal-gallery-thumb ${imgIndex === selected ? "active" : ""}"
-                      type="button"
-                      onclick="selectModalImage(${index},${imgIndex},event)"
-                      aria-label="Product image ${imgIndex + 1} पहा"
-                    >
-                      <img src="${escapeHtml(url)}" alt="" loading="lazy" />
-                    </button>
-                  `).join("")}
-                </div>
-              `
-              : ""
-          }
-        `;
-      }else{
-        gallery.innerHTML = `
-          <div class="modal-gallery-main">
-            <div class="image-placeholder">
-              <div>
-                <b>Product Image येथे</b>
-                <span>products[] मधील images array मध्ये actual URLs टाका.</span>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      modal.dataset.productIndex = String(index);
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden","false");
-      document.body.classList.add("modal-open");
-
-      requestAnimationFrame(() => {
-        document.getElementById("modalCloseButton")?.focus();
-      });
-    }
-
-    function selectModalImage(productIndex,imageIndex,event){
-      if(event) event.stopPropagation();
-
-      const images = getProductImages(products[productIndex]);
-      if(!images[imageIndex]) return;
-
-      galleryIndexes[productIndex] = imageIndex;
-
-      const mainImage = document.getElementById("modalMainImage");
-      if(mainImage){
-        mainImage.style.display = "block";
-        mainImage.src = images[imageIndex];
-        mainImage.alt = `${products[productIndex].title} - image ${imageIndex + 1}`;
-      }
-
-      document
-        .querySelectorAll(".modal-gallery-thumb")
-        .forEach((thumb,i) => {
-          thumb.classList.toggle("active",i === imageIndex);
-        });
-    }
-
-    function handleCardKeydown(index,event){
-      if(event.key === "Enter" || event.key === " "){
-        event.preventDefault();
-        openProduct(index,event);
-      }
-    }
-
-    function changeCardQuantity(index,amount,event){
-      if(event) event.stopPropagation();
-
-      cardQuantities[index] = Math.max(
-        1,
-        Math.min(99, cardQuantities[index] + amount)
-      );
-
-      const element = document.getElementById(`cardQty-${index}`);
-      if(element){
-        element.textContent = cardQuantities[index];
-      }
-    }
-
-
-    function changeModalQuantity(amount,event){
-      if(event) event.stopPropagation();
-
-      const modal = document.getElementById("productModal");
-      if(!modal) return;
-
-      const index = Number(modal.dataset.productIndex);
-      if(!Number.isInteger(index) || !products[index]) return;
-
-      cardQuantities[index] = Math.max(
-        1,
-        Math.min(99, (cardQuantities[index] || 1) + amount)
-      );
-
-      const qty = document.getElementById("modalQty");
-      if(qty){
-        qty.textContent = cardQuantities[index];
-      }
-    }
-
-    function sendCardInquiry(index,event){
-      if(event) event.stopPropagation();
-
-      const product = products[index];
-      const modal = document.getElementById("productModal");
-      const quantity = cardQuantities[index] || 1;
-
-      const message =
-`नमस्कार 🙏
-
-मला खालील Door Toran बद्दल inquiry करायची आहे.
-
-🪔 Product: ${product.title}
-📝 Description: ${product.description}
-📦 Quantity: ${quantity}
-
-कृपया किंमत, उपलब्धता आणि पुढील माहिती कळवा.
-
-धन्यवाद 🙏`;
-
-      const whatsappUrl =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-      window.open(whatsappUrl,"_blank","noopener,noreferrer");
-
-      if(modal){
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden","true");
-      }
-      document.body.classList.remove("modal-open");
-    }
-
-    function renderProducts(){
-      const grid = document.getElementById("productGrid");
-
-      grid.innerHTML = products.map((product,index) => `
-        <article
-          class="product-card"
-          id="productCard-${index}"
-          tabindex="0"
-          role="button"
-          aria-label="${escapeHtml(product.title)} चे details पहा"
-          onclick="openProduct(${index},event)"
-          onkeydown="handleCardKeydown(${index},event)"
-        >
-          <div class="product-photo">
-            ${productVisual(product)}
-          </div>
-
-          <div class="product-body">
-            <span class="product-tag">${escapeHtml(product.tag)}</span>
-
-            <h3 class="product-title">${escapeHtml(product.title)}</h3>
-
-            <p class="product-desc">${escapeHtml(product.description)}</p>
-
-            <div class="card-bottom">
-              <span class="mini-motif">✦ ॐ ✦</span>
-              <button
-                class="view-btn"
-                type="button"
-                onclick="openProduct(${index},event)"
-              >
-                डिझाइन पहा →
-              </button>
-            </div>
-          </div>
-        </article>
-      `).join("");
-    }
-
-    document.addEventListener("keydown",event => {
-      if(event.key === "Escape"){
-        closeProductModal();
-      }
-    });
-
-    function setupHeroImage(){
-      const image = document.getElementById("heroProductImage");
-      const placeholder = document.getElementById("heroImagePlaceholder");
-
-      if(!HERO_IMAGE_URL){
-        image.style.display = "none";
-        placeholder.style.display = "grid";
-        return;
-      }
-
-      image.onload = () => {
-        image.style.display = "block";
-        placeholder.style.display = "none";
-      };
-
-      image.onerror = () => {
-        image.style.display = "none";
-        placeholder.style.display = "grid";
-      };
-
-      image.src = HERO_IMAGE_URL;
-    }
-
-    renderProducts();
-    setupHeroImage();
-  </script>
-
-  <!-- Product details popup: appears ONLY when a product is opened -->
-  <div
-    class="product-modal"
-    id="productModal"
-    aria-hidden="true"
-    onclick="closeProductModal(event)"
-  >
-    <div
-      class="product-modal-panel"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalTitle"
-      onclick="event.stopPropagation()"
-    >
-      <button
-        class="product-modal-close"
-        id="modalCloseButton"
-        type="button"
-        aria-label="Close product"
-        onclick="closeProductModal()"
-      >×</button>
-
-      <div class="modal-gallery" id="modalGallery"></div>
-
-      <div class="modal-content">
-        <span class="modal-tag" id="modalTag"></span>
-        <h2 class="modal-title" id="modalTitle"></h2>
-        <p class="modal-description" id="modalDescription"></p>
-
-        <div class="modal-bottom">
-          <div>
-            <span class="modal-quantity-label">Quantity</span>
-            <div class="modal-quantity">
-              <button
-                type="button"
-                aria-label="Quantity कमी करा"
-                onclick="changeModalQuantity(-1,event)"
-              >−</button>
-
-              <strong id="modalQty">1</strong>
-
-              <button
-                type="button"
-                aria-label="Quantity वाढवा"
-                onclick="changeModalQuantity(1,event)"
-              >+</button>
-            </div>
-          </div>
-
-          <button
-            class="modal-inquiry"
-            type="button"
-            onclick="sendCardInquiry(Number(document.getElementById('productModal').dataset.productIndex),event)"
-          >
-            WhatsApp वर Inquiry ↗
-          </button>
         </div>
       </div>
     </div>
   </div>
 
+  <script>
+    // Configuration
+    const WHATSAPP_NUMBER = "919765773828";
+    
+    // Product Data
+    const products = [
+      {
+        title: "शुभ लाभ तोरण",
+        description: "पारंपरिक भारतीय शुभ चिन्हांनी सजवलेले आकर्षक Door Toran. दाराला अतिशय सुंदर लुक देणारे.",
+        images: [
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/dhno9tbj9bc0cgehegai.jpg",
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/gjk9lhjyc1t8yzeorhzw.jpg"
+        ],
+        tag: "पारंपरिक"
+      },
+      {
+        title: "गणपती आणि कमळ तोरण",
+        description: "गणपती आणि कमळ वर्क असलेले खास तोरण. सणांसाठी आणि विशेष कार्यक्रमांसाठी उत्तम.",
+        images: [
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/qxa2uklqkvg3joml9k2j.jpg",
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/gopvplhdnoeot9jassmk.jpg"
+        ],
+        tag: "नवीन डिझाइन"
+      },
+      {
+        title: "गणपती आणि स्वस्तिक तोरण",
+        description: "दिवाळी आणि दसऱ्यासाठी गणपती आणि स्वस्तिककृत्रिम पण अगदी खऱ्यासारखे दिसणारे तोरण.",
+        images: [
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405953/rbm3bv0oo9zekirzbinq.jpg",
+          "https://res.cloudinary.com/dtdlr08nn/image/upload/v1790405952/wmwazussc1lxydugoro0.jpg"
+        ],
+        tag: "सणांसाठी खास"
+      }
+    ];
+
+    // State variables
+    let currentProductIndex = 0;
+    let currentQty = 1;
+
+    // Initialize Catalog
+    function initCatalog() {
+      const container = document.getElementById('catalog-container');
+      
+      container.innerHTML = products.map((prod, index) => `
+        <div class="product-card" onclick="openModal(${index})">
+          <div class="card-image-wrap">
+            <img src="${prod.images[0]}" alt="${prod.title}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzk5OSIgZG1pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZTwvdGV4dD48L3N2Zz4='">
+          </div>
+          <div class="card-content">
+            <div class="card-tag">${prod.tag}</div>
+            <h3 class="card-title">${prod.title}</h3>
+            <p class="card-desc">${prod.description}</p>
+            <div class="card-action">
+              <span>✦ ॐ ✦</span>
+              <span class="btn-view">पहा आणि ऑर्डर करा</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal Functions
+    function openModal(index) {
+      currentProductIndex = index;
+      currentQty = 1;
+      const product = products[index];
+      
+      // Update info
+      document.getElementById('modal-title').textContent = product.title;
+      document.getElementById('modal-desc').textContent = product.description;
+      document.getElementById('modal-tag').textContent = product.tag;
+      document.getElementById('modal-qty').textContent = currentQty;
+      
+      // Update gallery
+      const mainImg = document.getElementById('modal-main-img');
+      mainImg.src = product.images[0];
+      
+      const thumbContainer = document.getElementById('modal-thumbs');
+      if (product.images.length > 1) {
+        thumbContainer.innerHTML = product.images.map((img, i) => `
+          <div class="thumb ${i === 0 ? 'active' : ''}" onclick="setMainImage(${i}, this)">
+            <img src="${img}" alt="Thumbnail ${i+1}">
+          </div>
+        `).join('');
+        thumbContainer.style.display = 'flex';
+      } else {
+        thumbContainer.style.display = 'none';
+      }
+
+      // Show modal
+      const modal = document.getElementById('product-modal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('product-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Close on background click
+    document.getElementById('product-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function setMainImage(imgIndex, thumbEl) {
+      const product = products[currentProductIndex];
+      document.getElementById('modal-main-img').src = product.images[imgIndex];
+      
+      // Update active thumbnail styling
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      thumbEl.classList.add('active');
+    }
+
+    function updateQty(change) {
+      currentQty += change;
+      if (currentQty < 1) currentQty = 1;
+      if (currentQty > 50) currentQty = 50; // reasonable limit
+      document.getElementById('modal-qty').textContent = currentQty;
+    }
+
+    function sendWhatsApp() {
+      const product = products[currentProductIndex];
+      
+      const message = 
+`नमस्कार 🙏
+
+मला खालील तोरण बद्दल माहिती हवी आहे:
+
+*Product:* ${product.title}
+*Quantity:* ${currentQty}
+
+कृपया किंमत आणि इतर माहिती सांगा.
+धन्यवाद!`;
+
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      closeModal();
+    }
+
+    // Run on load
+    document.addEventListener('DOMContentLoaded', initCatalog);
+
+  </script>
 </body>
 </html>
